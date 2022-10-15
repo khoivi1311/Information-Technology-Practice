@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SmartHomeModelStoreContainer" CdmEntityContainer="SmartHomeEntities">
+    <EntitySetMapping Name="DataLogs">
+      <EntityTypeMapping TypeName="SmartHomeModel.DataLog">
+        <MappingFragment StoreEntitySet="DataLog">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="day" ColumnName="day" />
+          <ScalarProperty Name="totalTime" ColumnName="totalTime" />
+          <ScalarProperty Name="lampId" ColumnName="lampId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lamps">
+      <EntityTypeMapping TypeName="SmartHomeModel.Lamp">
+        <MappingFragment StoreEntitySet="Lamp">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sensors">
+      <EntityTypeMapping TypeName="SmartHomeModel.Sensor">
+        <MappingFragment StoreEntitySet="Sensor">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="day" ColumnName="day" />
+          <ScalarProperty Name="lampId" ColumnName="lampId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusLamps">
+      <EntityTypeMapping TypeName="SmartHomeModel.StatusLamp">
+        <MappingFragment StoreEntitySet="StatusLamp">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="day" ColumnName="day" />
+          <ScalarProperty Name="lampId" ColumnName="lampId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="status_Lamp" FunctionName="SmartHomeModel.Store.status_Lamp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartHomeModel.status_Lamp_Result">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="lampId" ColumnName="lampId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

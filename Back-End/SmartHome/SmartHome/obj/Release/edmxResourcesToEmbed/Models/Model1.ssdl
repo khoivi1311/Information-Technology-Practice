@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SmartHomeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DataLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="day" Type="date" />
+    <Property Name="totalTime" Type="float" />
+    <Property Name="lampId" Type="int" />
+  </EntityType>
+  <EntityType Name="Lamp">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="address" Type="varchar" MaxLength="50" />
+    <Property Name="imageURL" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Sensor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="5" />
+    <Property Name="day" Type="datetime" />
+    <Property Name="lampId" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="StatusLamp">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="5" />
+    <Property Name="day" Type="datetime" />
+    <Property Name="lampId" Type="int" />
+  </EntityType>
+  <Function Name="status_Lamp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="SmartHomeModelStoreContainer">
+    <EntitySet Name="DataLog" EntityType="Self.DataLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lamp" EntityType="Self.Lamp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sensor" EntityType="Self.Sensor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StatusLamp" EntityType="Self.StatusLamp" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

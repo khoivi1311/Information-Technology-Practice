@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SmartHomeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DataLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="day" Type="DateTime" Precision="0" />
+    <Property Name="totalTime" Type="Double" />
+    <Property Name="lampId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Lamp">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="imageURL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Sensor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="status" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="day" Type="DateTime" Precision="3" />
+    <Property Name="lampId" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="StatusLamp">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="status" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="day" Type="DateTime" Precision="3" />
+    <Property Name="lampId" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="SmartHomeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DataLogs" EntityType="Self.DataLog" />
+    <EntitySet Name="Lamps" EntityType="Self.Lamp" />
+    <EntitySet Name="Sensors" EntityType="Self.Sensor" />
+    <EntitySet Name="StatusLamps" EntityType="Self.StatusLamp" />
+    <FunctionImport Name="status_Lamp" ReturnType="Collection(SmartHomeModel.status_Lamp_Result)" />
+  </EntityContainer>
+  <ComplexType Name="status_Lamp_Result">
+    <Property Type="String" Name="status" Nullable="true" MaxLength="5" />
+    <Property Type="Int32" Name="lampId" Nullable="true" />
+  </ComplexType>
+</Schema>
