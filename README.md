@@ -1,4 +1,5 @@
 # Project-Information-Technology-Practice
+Website Smart Home - Remote Control Light Bulb
 ## Giới thiệu đồ án
 Đồ án này thực hiện xây dựng trang web Smart Home cho phép người dùng có thể truy cập vào để thực hiện điều khiển tắt mở đèn từ xa thông qua các thiết bị có thể kết nối với Internet. Đồ án được thực hiện theo nhóm gồm có ba thành viên (1 Front-end, 1 Back-end + Database, 1 IoT). Trong phần Front-end sẽ thiết kế giao diện cho phép người dùng có thể tương tác bật tắt đèn, gửi request tới Web API để lấy dữ liệu về và hiển thị lên giao diện. Trong phần Back-end sẽ kết nối đến database và xây dựng các phương thức cho Web API để khi có request tới để xử lý và response dữ liệu về theo yêu cầu của request. Trong phần Database sẽ thực hiện tạo database thiết kế các bảng để lưu trữ dữ liệu. Trong phần IoT sẽ thực hiện việc điều khiển đèn sáng tắt thông qua dữ liệu nhận được từ Web API.
 ## Công nghệ sử dụng
